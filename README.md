@@ -33,7 +33,7 @@ Add some files to pair's home dir:
 - sudo touch /Users/pair-with-me/.zshrc
 
 Add the public keys of any pairs to authorized_keys
-Add `wemux mirror|pair|rogue` to the .zshrc.
+Add `wemux mirror|pair|rogue; exit` to the .zshrc.
 
 Disable access via anything except public key:
 - sudo vim /etc/ssh/sshd_config
