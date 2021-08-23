@@ -8,13 +8,15 @@
 ## If you want to do this yourself:
 
 Get your software:
-- brew install tmux
-- brew install wemux
-- brew cask install ngrok
+```
+brew install tmux
+brew install wemux
+brew cask install ngrok
+```
 
 Create user account for pair:
 - apple -> System Preferences -> Users and Groups -> (unlock) -> +.
-- Create a standard account with username e.g. `pair-with-me`, you won't give out the
+- Create a standard (non-admin) account with username e.g. `pair-with-me`, you won't give out the
   password.
 
 You may need to restart at this point.
@@ -24,19 +26,32 @@ Enable remote login for pair account:
 - Enable it for 'only these users' and list your pair account
 
 Add some files to pair's home dir:
-- sudo mkdir /Users/pair-with-me/.ssh
-- sudo touch /Users/pair-with-me/.ssh/authorized_keys
-- sudo chmod 600 /Users/pair-with-me/.ssh/authorized_keys
-- sudo chmod 700 /Users/pair-with-me/.ssh/authorized_keys
-- sudo chown busbud-pair /Users/pair-with-me/.ssh
-- sudo chown busbud-pair /Users/pair-with-me/.ssh/authorized_keys
-- sudo touch /Users/pair-with-me/.zshrc
+```
+sudo mkdir /Users/pair-with-me/.ssh
+sudo touch /Users/pair-with-me/.ssh/authorized_keys
+sudo chmod 600 /Users/pair-with-me/.ssh/authorized_keys
+sudo chmod 700 /Users/pair-with-me/.ssh/authorized_keys
+sudo chown pair-with-me /Users/pair-with-me/.ssh
+sudo chown pair-with-me /Users/pair-with-me/.ssh/authorized_keys
+sudo touch /Users/pair-with-me/.zshrc
+```
 
-Add the public keys of any pairs to authorized_keys
-Add `wemux mirror|pair|rogue; exit` to the .zshrc.
+Add the public keys of any pairs to authorized_keys:
+
+```
+echo '~ssh-public-key~' | sudo tee -a /Users/pair-with-me/.ssh/authorized_keys > /dev/null
+```
+
+Add `wemux mirror|pair|rogue; exit` to the .zshrc:
+
+```
+echo 'wemux pair; exit' | sudo tee -a /Users/pair-with-me/.zshrc > /dev/null
+```
 
 Disable access via anything except public key:
-- sudo vim /etc/ssh/sshd_config
+```
+sudo vim /etc/ssh/sshd_config
+```
 
 Ensure following settings are correct:
 ```
@@ -46,10 +61,14 @@ UsePAM no
 ```
 
 Expose your local ssh agent:
-- ngrok tcp 22
+```
+ngrok tcp 22
+```
 
 Your pairs can connect with this command:
-- ssh pair-with-me@0.tcp.ngrok.io -p {port-number-from-ngrok}
+```
+ssh pair-with-me@0.tcp.ngrok.io -p {port-number-from-ngrok}
+```
 
 
 Main reference: http://martinbrochhaus.com/pair.html
