@@ -3,16 +3,21 @@
 ## If you're pairing with me:
 
 1. Send me your public ssh key.
-2. Run `ssh pair-with-me@0.tcp.ngrok.io -p {port-number-i-give-you}`
+2. Run `ssh pair-with-me@{number-i-give-you}.tcp.ngrok.io -p {port-number-i-give-you}`
 
 ## If you want to do this yourself:
 
 Get your software:
 ```
 brew install tmux
-brew install wemux
 brew cask install ngrok
+
+git clone git://github.com/zolrath/wemux.git /usr/local/share/wemux
+ln -s /usr/local/share/wemux/wemux /usr/local/bin/wemux
+cp /usr/local/share/wemux/wemux.conf.example /usr/local/etc/wemux.conf
 ```
+
+To configure wemux, open `/usr/local/etc/wemux.conf` and add the line `host_list=(your_username)`
 
 Create user account for pair:
 - apple -> System Preferences -> Users and Groups -> (unlock) -> +.
@@ -67,7 +72,7 @@ ngrok tcp 22
 
 Your pairs can connect with this command:
 ```
-ssh pair-with-me@0.tcp.ngrok.io -p {port-number-from-ngrok}
+ssh pair-with-me@{number-from-ngrok}.tcp.ngrok.io -p {port-number-from-ngrok}
 ```
 
 
