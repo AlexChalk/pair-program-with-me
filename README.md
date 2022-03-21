@@ -3,7 +3,7 @@
 ## If you're pairing with me:
 
 1. Send me your public ssh key.
-2. Run `ssh pair-with-me@{number-i-give-you}.tcp.ngrok.io -p {port-number-i-give-you}`
+2. Run the command I give you, something like this: `ssh pair-with-me@{number}.tcp.ngrok.io -p {number}`.
 
 ## If you want to do this yourself:
 
@@ -74,6 +74,8 @@ Your pairs can connect with this command:
 ```
 ssh pair-with-me@{number-from-ngrok}.tcp.ngrok.io -p {port-number-from-ngrok}
 ```
+
+If you want a quick way of outputting the command for your pairs, consider a script like this one: https://github.com/AlexChalk/dotfiles/blob/20a001d4b1c487cc1a6614d11ea8495ae59dd13b/bin/ngrok_ssh.
 
 
 Main reference: http://martinbrochhaus.com/pair.html
