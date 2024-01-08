@@ -34,8 +34,8 @@ Add some files to pair's home dir:
 ```
 sudo mkdir /Users/pair-with-me/.ssh
 sudo touch /Users/pair-with-me/.ssh/authorized_keys
+sudo chmod 700 /Users/pair-with-me/.ssh
 sudo chmod 600 /Users/pair-with-me/.ssh/authorized_keys
-sudo chmod 700 /Users/pair-with-me/.ssh/authorized_keys
 sudo chown pair-with-me /Users/pair-with-me/.ssh
 sudo chown pair-with-me /Users/pair-with-me/.ssh/authorized_keys
 sudo touch /Users/pair-with-me/.zshrc
