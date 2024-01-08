@@ -10,7 +10,7 @@
 Get your software:
 ```
 brew install tmux
-brew cask install ngrok
+brew install --cask ngrok
 
 git clone git://github.com/zolrath/wemux.git /usr/local/share/wemux
 ln -s /usr/local/share/wemux/wemux /usr/local/bin/wemux
